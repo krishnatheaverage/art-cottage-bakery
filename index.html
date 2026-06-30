@@ -22,6 +22,8 @@
     --gold-light:#DCBE72;
     --teal:#356157;
     --teal-deep:#274A42;
+    --teal-soft:#9FC4BC;
+    --teal-mist:#E6F0EC;
     --blush:#D78B98;
     --plum:#6F3A44;
     --shadow:0 22px 55px -28px rgba(58,48,42,.55);
@@ -46,8 +48,8 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
   .wash{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none;}
   .wash span{position:absolute;border-radius:50%;filter:blur(80px);}
-  .wash .b1{width:48vw;height:48vw;top:-14vw;left:-12vw;background:radial-gradient(circle,rgba(53,97,87,.22),transparent 70%);}
-  .wash .b2{width:42vw;height:42vw;top:38vh;right:-14vw;background:radial-gradient(circle,rgba(215,139,152,.20),transparent 70%);}
+  .wash .b1{width:50vw;height:50vw;top:-14vw;left:-12vw;background:radial-gradient(circle,rgba(159,196,188,.34),transparent 70%);}
+  .wash .b2{width:42vw;height:42vw;top:38vh;right:-14vw;background:radial-gradient(circle,rgba(215,139,152,.18),transparent 70%);}
   .wash .b3{width:40vw;height:40vw;bottom:-12vw;left:24vw;background:radial-gradient(circle,rgba(188,154,75,.18),transparent 70%);}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
@@ -123,19 +125,24 @@
   .frame .mat img{width:100%;height:100%;object-fit:cover;display:block;box-shadow:0 3px 12px rgba(58,48,42,.32);}
   .hero-frame .mat{padding:18px;}
 
-  /* collection */
-  .collection{padding:92px 0;}
+  /* collection (soft teal gallery-wall band) */
+  .collection{padding:92px 0;background:linear-gradient(180deg,var(--canvas) 0%,var(--teal-mist) 9%,var(--teal-mist) 91%,var(--canvas) 100%);}
   .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:40px 34px;}
   .piece{display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;}
-  .piece .frame{width:100%;transition:transform .5s var(--ease),box-shadow .5s var(--ease);}
+  .piece .frame{width:100%;transition:transform .5s var(--ease),box-shadow .5s var(--ease);position:relative;}
   .piece .mat img{aspect-ratio:4/5;}
   .piece:hover .frame{transform:translateY(-8px);box-shadow:0 34px 60px -30px rgba(58,48,42,.7);}
+  /* little "multiple photos" corner badge */
+  .multi-badge{position:absolute;top:16px;right:16px;z-index:3;display:none;align-items:center;gap:5px;
+    background:rgba(39,74,66,.82);color:#EAF2EE;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 9px;border-radius:20px;border:1px solid rgba(159,196,188,.5);}
+  .piece.has-multi .multi-badge{display:inline-flex;}
   .plaque{margin-top:20px;}
   .plaque h3{font-size:1.7rem;font-weight:500;letter-spacing:.01em;}
   .plaque .desc{color:var(--muted);font-size:.93rem;margin:7px auto 0;max-width:260px;line-height:1.5;}
   .plaque .tag{display:inline-block;margin-top:11px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;
     color:var(--gold-deep);border-bottom:1px solid var(--gold-light);padding-bottom:3px;transition:.3s;}
-  .piece:hover .plaque .tag{letter-spacing:.32em;}
+  .piece:hover .plaque .tag{letter-spacing:.32em;color:var(--teal);border-color:var(--teal-soft);}
   /* empty frame placeholder */
   .piece.soon .mat{aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
     background:repeating-linear-gradient(45deg,#F3EAD6,#F3EAD6 14px,#EFE4CD 14px,#EFE4CD 28px);}
@@ -152,15 +159,15 @@
   .artist .integrity{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.3rem;color:var(--teal-deep);margin:18px 0;}
   .artist .signoff{font-family:"Pinyon Script",cursive;font-size:2.2rem;color:var(--plum);margin-top:10px;}
   .artist .badges{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px;}
-  .artist .badges span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);
-    border:1px solid var(--gold-light);border-radius:30px;padding:6px 14px;}
+  .artist .badges span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);
+    border:1px solid var(--teal-soft);border-radius:30px;padding:6px 14px;}
 
   /* order */
-  .order{padding:92px 0;background:linear-gradient(180deg,transparent,rgba(53,97,87,.07),transparent);}
+  .order{padding:92px 0;background:linear-gradient(180deg,transparent,var(--teal-mist),transparent);}
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-bottom:54px;}
   .step{text-align:center;padding:0 14px;}
   .step .num{width:64px;height:64px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;
-    margin:0 auto 18px;font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:var(--gold-deep);}
+    margin:0 auto 18px;font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:var(--gold-deep);background:rgba(159,196,188,.16);}
   .step h3{font-size:1.5rem;font-weight:400;margin-bottom:8px;}
   .step p{color:var(--muted);font-size:.96rem;}
   .order-card{background:var(--paper);border-radius:4px;box-shadow:var(--shadow);max-width:780px;margin:0 auto;
@@ -190,13 +197,20 @@
   .foot-bottom{border-top:1px solid rgba(239,226,200,.18);margin-top:52px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;letter-spacing:.06em;color:#9FB0A2;}
   .foot-bottom a{color:var(--gold-light);}
 
-  /* lightbox */
-  .lightbox{position:fixed;inset:0;z-index:80;background:rgba(39,33,28,.9);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:32px;}
-  .lightbox.open{display:flex;flex-direction:column;gap:16px;}
-  .lightbox .lb-frame{max-width:min(620px,92vw);max-height:78vh;}
-  .lightbox .lb-frame .mat img{max-height:68vh;width:auto;}
+  /* lightbox (now a per-item gallery) */
+  .lightbox{position:fixed;inset:0;z-index:80;background:rgba(39,33,28,.92);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:32px;}
+  .lightbox.open{display:flex;flex-direction:column;gap:14px;}
+  .lightbox .lb-frame{max-width:min(620px,90vw);max-height:76vh;}
+  .lightbox .lb-frame .mat img{max-height:66vh;width:auto;}
   .lightbox .lb-cap{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.5rem;color:#F3E7CF;text-align:center;}
   .lightbox .lb-close{position:absolute;top:22px;right:30px;color:#F3E7CF;font-size:2.2rem;background:none;border:0;cursor:pointer;}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(243,231,207,.1);
+    border:1px solid rgba(243,231,207,.45);color:#F3E7CF;width:48px;height:48px;border-radius:50%;
+    font-size:1.7rem;line-height:1;cursor:pointer;transition:.3s;z-index:2;}
+  .lb-nav:hover{background:rgba(243,231,207,.25);}
+  #lbPrev{left:24px;} #lbNext{right:24px;}
+  .lb-nav.hidden{display:none;}
+  .lb-count{font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:#C9BBA0;}
 
   @media(max-width:920px){
     nav.links{display:none;}
@@ -214,6 +228,8 @@
     footer .b-sub{padding-left:0;}
     .hero-cta{flex-direction:column;align-items:center;}
     .hero-cta .btn{width:100%;max-width:280px;text-align:center;}
+    .lb-nav{width:42px;height:42px;font-size:1.4rem;}
+    #lbPrev{left:10px;} #lbNext{right:10px;}
   }
 </style>
 </head>
@@ -271,41 +287,41 @@
       <span class="eyebrow">the collection</span>
       <h2>A Little Gallery of What We Make</h2>
       <div class="ornament"><b>&#10047;</b></div>
-      <p>Every bake is finished by hand, like a small painting. Tap any piece to see it up close.</p>
+      <p>Every bake is finished by hand, like a small painting. Tap any piece to browse a few examples up close.</p>
     </div>
     <div class="cat-grid">
 
-      <article class="piece reveal" data-img="photos/web/cakes.jpg" data-name="Cakes">
-        <div class="frame"><div class="mat"><img src="photos/web/cakes.jpg" alt="Caramel-drip layer cake, oil-painting style" loading="lazy" /></div></div>
-        <div class="plaque"><h3>Cakes</h3><p class="desc">Hand-finished layer cakes, painted to your theme.</p><span class="tag">View &amp; Inquire</span></div>
+      <article class="piece reveal" data-imgs="photos/web/cakes.jpg|photos/web/tiered-cakes.jpg|photos/web/art-jun29.jpg" data-name="Cakes">
+        <div class="frame"><span class="multi-badge">&#9635; Gallery</span><div class="mat"><img src="photos/web/cakes.jpg" alt="Caramel-drip layer cake, oil-painting style" loading="lazy" /></div></div>
+        <div class="plaque"><h3>Cakes</h3><p class="desc">Hand-finished layer cakes, painted to your theme.</p><span class="tag">View Gallery</span></div>
       </article>
 
-      <article class="piece reveal" data-img="photos/web/cupcakes.jpg" data-name="Cupcakes">
+      <article class="piece reveal" data-imgs="photos/web/cupcakes.jpg" data-name="Cupcakes">
         <div class="frame"><div class="mat"><img src="photos/web/cupcakes.jpg" alt="Pink and purple buttercream rose cupcakes, oil-painting style" loading="lazy" /></div></div>
         <div class="plaque"><h3>Cupcakes</h3><p class="desc">Buttercream roses, finished like brushwork.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="piece reveal" data-img="photos/web/tiered-cakes.jpg" data-name="Tiered Cakes">
+      <article class="piece reveal" data-imgs="photos/web/tiered-cakes.jpg" data-name="Tiered Cakes">
         <div class="frame"><div class="mat"><img src="photos/web/tiered-cakes.jpg" alt="Two-tier cake with navy and cream roses, oil-painting style" loading="lazy" /></div></div>
         <div class="plaque"><h3>Tiered Cakes</h3><p class="desc">Statement centerpieces for the big days.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="piece reveal" data-img="photos/web/cookies.jpg" data-name="Cookies">
+      <article class="piece reveal" data-imgs="photos/web/cookies.jpg" data-name="Cookies">
         <div class="frame"><div class="mat"><img src="photos/web/cookies.jpg" alt="Tray of loaded cookies, oil-painting style" loading="lazy" /></div></div>
         <div class="plaque"><h3>Cookies</h3><p class="desc">Small-batch, packed with texture and care.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="piece reveal" data-img="photos/web/dessert-breads-pies.jpg" data-name="Dessert Breads &amp; Pies">
+      <article class="piece reveal" data-imgs="photos/web/dessert-breads-pies.jpg" data-name="Dessert Breads &amp; Pies">
         <div class="frame"><div class="mat"><img src="photos/web/dessert-breads-pies.jpg" alt="Apple dessert bread with blueberries, oil-painting style" loading="lazy" /></div></div>
         <div class="plaque"><h3>Dessert Breads &amp; Pies</h3><p class="desc">Seasonal dessert breads and pies, baked fresh.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="piece reveal" data-img="photos/web/pies-cinn-rolls.jpg" data-name="Muffins &amp; Cinnamon Rolls">
+      <article class="piece reveal" data-imgs="photos/web/pies-cinn-rolls.jpg" data-name="Muffins &amp; Cinnamon Rolls">
         <div class="frame"><div class="mat"><img src="photos/web/pies-cinn-rolls.jpg" alt="Iced cinnamon rolls, oil-painting style" loading="lazy" /></div></div>
         <div class="plaque"><h3>Muffins &amp; Cinnamon Rolls</h3><p class="desc">Morning comfort, made from scratch.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="piece reveal" data-img="photos/web/art-jun29.jpg" data-name="Painted Cakes">
+      <article class="piece reveal" data-imgs="photos/web/art-jun29.jpg" data-name="Painted Cakes">
         <div class="frame"><div class="mat"><img src="photos/web/art-jun29.jpg" alt="Cake with a hand-painted sunflower, oil-painting style" loading="lazy" /></div></div>
         <div class="plaque"><h3>Painted Cakes</h3><p class="desc">Edible canvases, hand-painted by the artist.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
@@ -407,11 +423,14 @@
   </div>
 </footer>
 
-<!-- lightbox -->
+<!-- lightbox / per-item gallery -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <button class="lb-nav" id="lbNext" aria-label="Next photo">&#8250;</button>
   <div class="lb-frame frame"><div class="mat"><img id="lbImg" src="" alt="" /></div></div>
   <div class="lb-cap" id="lbCap"></div>
+  <div class="lb-count" id="lbCount"></div>
 </div>
 
 <script>
@@ -429,14 +448,33 @@
   }, { threshold:.1 });
   document.querySelectorAll('.reveal').forEach(function(el,i){ el.style.transitionDelay=(i%4)*80+'ms'; io.observe(el); });
 
-  var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap');
-  document.querySelectorAll('.piece[data-img]').forEach(function(p){
-    p.onclick=function(){ lbImg.src=p.getAttribute('data-img'); lbImg.alt=p.getAttribute('data-name'); lbCap.textContent=p.getAttribute('data-name'); lb.classList.add('open'); };
+  // per-item photo gallery (each item can hold one or many photos)
+  var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg'),
+      lbCap=document.getElementById('lbCap'), lbCount=document.getElementById('lbCount'),
+      lbPrev=document.getElementById('lbPrev'), lbNext=document.getElementById('lbNext');
+  var gal=[], gi=0, gName='';
+  function showG(){
+    lbImg.src=gal[gi]; lbImg.alt=gName+' ('+(gi+1)+' of '+gal.length+')';
+    lbCap.textContent=gName;
+    lbCount.textContent = gal.length>1 ? (gi+1)+' / '+gal.length : '';
+    var multi=gal.length>1;
+    lbPrev.classList.toggle('hidden',!multi); lbNext.classList.toggle('hidden',!multi);
+  }
+  function openG(p){ gal=p.getAttribute('data-imgs').split('|'); gName=p.getAttribute('data-name'); gi=0; showG(); lb.classList.add('open'); }
+  function step(d){ gi=(gi+d+gal.length)%gal.length; showG(); }
+  document.querySelectorAll('.piece[data-imgs]').forEach(function(p){
+    if(p.getAttribute('data-imgs').split('|').length>1) p.classList.add('has-multi');
+    p.onclick=function(){ openG(p); };
   });
+  lbPrev.onclick=function(e){ e.stopPropagation(); step(-1); };
+  lbNext.onclick=function(e){ e.stopPropagation(); step(1); };
   function closeLb(){ lb.classList.remove('open'); }
   document.getElementById('lbClose').onclick=closeLb;
   lb.onclick=function(e){ if(e.target===lb) closeLb(); };
-  addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeLb(); mm.classList.remove('open'); } });
+  addEventListener('keydown', function(e){
+    if(e.key==='Escape'){ closeLb(); mm.classList.remove('open'); }
+    if(lb.classList.contains('open')){ if(e.key==='ArrowLeft') step(-1); if(e.key==='ArrowRight') step(1); }
+  });
 </script>
 </body>
 </html>
