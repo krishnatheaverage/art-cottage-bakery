@@ -3,303 +3,211 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Art Cottage Bakery — Where taste compliments integrity</title>
-<meta name="description" content="An entirely from-scratch home bakery crafting edible art, painterly cakes, delicate pastries, and our beloved banana raisin muffins." />
+<title>Art Cottage Bakery — From home, from scratch, from the heart</title>
+<meta name="description" content="An entirely from-scratch home bakery in Texas City, TX, serving edible pieces of art. Hand-painted cakes, buttercream florals, and bakes made by a working oil painter." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet" />
+<script>document.documentElement.classList.add('js');</script>
 <style>
   :root{
-    --ivory:#FAF6F2;
-    --cream:#F4E9E3;
-    --blush:#EBD4CF;
-    --rose:#D8AEA9;
-    --mauve:#B68C92;
-    --mauve-deep:#9C7077;
-    --sage:#AEB799;
-    --sage-deep:#879572;
-    --gold:#C2A36B;
-    --gold-deep:#A8854E;
-    --ink:#463B40;
-    --muted:#7C6D72;
-    --white:#ffffff;
-    --shadow:0 18px 50px -24px rgba(70,59,64,.35);
-    --shadow-sm:0 8px 24px -16px rgba(70,59,64,.4);
+    --canvas:#F4EBDA;
+    --canvas-2:#EEE2CC;
+    --paper:#FBF6EC;
+    --mat:#F3EAD6;
+    --ink:#3A302A;
+    --muted:#6E6155;
+    --gold:#BC9A4B;
+    --gold-deep:#9A7B30;
+    --gold-light:#DCBE72;
+    --teal:#356157;
+    --teal-deep:#274A42;
+    --blush:#D78B98;
+    --plum:#6F3A44;
+    --shadow:0 22px 55px -28px rgba(58,48,42,.55);
+    --shadow-sm:0 12px 30px -20px rgba(58,48,42,.6);
     --maxw:1180px;
     --ease:cubic-bezier(.22,.61,.36,1);
   }
-
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
-    font-family:"Jost",system-ui,sans-serif;
-    font-weight:300;
-    color:var(--ink);
-    background:var(--ivory);
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    margin:0;font-family:"Jost",system-ui,sans-serif;font-weight:300;
+    color:var(--ink);background:var(--canvas);line-height:1.7;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
   h1,h2,h3,h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;line-height:1.12;margin:0;}
   p{margin:0 0 1rem;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
 
-  /* ---------- ethereal watercolor wash ---------- */
-  .wash{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;}
-  .wash span{position:absolute;border-radius:50%;filter:blur(70px);opacity:.4;}
-  .wash .b1{width:46vw;height:46vw;top:-12vw;left:-10vw;background:radial-gradient(circle,var(--blush),transparent 70%);}
-  .wash .b2{width:40vw;height:40vw;top:30vh;right:-12vw;background:radial-gradient(circle,var(--sage),transparent 70%);opacity:.3;}
-  .wash .b3{width:38vw;height:38vw;bottom:-10vw;left:20vw;background:radial-gradient(circle,var(--rose),transparent 70%);opacity:.28;}
-  .wash .b4{width:30vw;height:30vw;top:62vh;left:-8vw;background:radial-gradient(circle,#E9D8B8,transparent 70%);opacity:.32;}
+  /* canvas grain + soft washes */
+  .grain{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .wash{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none;}
+  .wash span{position:absolute;border-radius:50%;filter:blur(80px);}
+  .wash .b1{width:48vw;height:48vw;top:-14vw;left:-12vw;background:radial-gradient(circle,rgba(53,97,87,.22),transparent 70%);}
+  .wash .b2{width:42vw;height:42vw;top:38vh;right:-14vw;background:radial-gradient(circle,rgba(215,139,152,.20),transparent 70%);}
+  .wash .b3{width:40vw;height:40vw;bottom:-12vw;left:24vw;background:radial-gradient(circle,rgba(188,154,75,.18),transparent 70%);}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
 
-  /* ---------- shared bits ---------- */
-  .eyebrow{
-    font-family:"Pinyon Script",cursive;
-    font-size:1.9rem;
-    color:var(--mauve-deep);
-    line-height:1;
-    display:inline-block;
-  }
-  .kicker{
-    font-family:"Jost",sans-serif;font-weight:400;
-    text-transform:uppercase;letter-spacing:.42em;
-    font-size:.7rem;color:var(--gold-deep);
-    margin-left:.42em;
-  }
-  .ornament{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);margin:18px 0 0;}
-  .ornament::before,.ornament::after{content:"";height:1px;width:54px;background:linear-gradient(90deg,transparent,var(--gold));}
+  .eyebrow{font-family:"Pinyon Script",cursive;font-size:2rem;color:var(--gold-deep);line-height:1;display:inline-block;}
+  .ornament{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);margin:16px 0 0;}
+  .ornament::before,.ornament::after{content:"";height:1px;width:56px;}
+  .ornament::before{background:linear-gradient(90deg,transparent,var(--gold));}
   .ornament::after{background:linear-gradient(90deg,var(--gold),transparent);}
-  .ornament svg{width:16px;height:16px;}
+  .ornament b{font-size:.7rem;}
 
-  .btn{
-    display:inline-block;font-family:"Jost",sans-serif;font-weight:400;
-    text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;
-    padding:15px 34px;border:1px solid var(--mauve);color:var(--mauve-deep);
-    background:transparent;cursor:pointer;border-radius:2px;
-    transition:all .45s var(--ease);
-  }
-  .btn:hover{background:var(--mauve);color:#fff;letter-spacing:.26em;}
-  .btn.solid{background:var(--mauve-deep);border-color:var(--mauve-deep);color:#fff;}
+  .btn{display:inline-block;font-family:"Jost",sans-serif;font-weight:400;text-transform:uppercase;
+    letter-spacing:.22em;font-size:.72rem;padding:15px 34px;cursor:pointer;border-radius:2px;
+    border:1px solid var(--teal);color:var(--teal-deep);background:transparent;transition:all .45s var(--ease);}
+  .btn:hover{background:var(--teal);color:#fff;letter-spacing:.26em;}
+  .btn.solid{background:var(--teal-deep);border-color:var(--teal-deep);color:#F6ECD8;}
   .btn.solid:hover{background:var(--ink);border-color:var(--ink);}
   .btn.gold{border-color:var(--gold);color:var(--gold-deep);}
   .btn.gold:hover{background:var(--gold);color:#fff;}
 
   section{position:relative;}
-  .section-head{text-align:center;max-width:660px;margin:0 auto 56px;}
-  .section-head h2{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:300;margin-top:6px;}
-  .section-head p{color:var(--muted);font-size:1.05rem;}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 56px;}
+  .section-head h2{font-size:clamp(2.4rem,5vw,3.7rem);font-weight:300;margin-top:6px;}
+  .section-head p{color:var(--muted);font-size:1.06rem;}
 
-  /* reveal on scroll */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);}
-  .reveal.in{opacity:1;transform:none;}
+  .reveal{transition:opacity 1s var(--ease),transform 1s var(--ease);}
+  .js .reveal{opacity:0;transform:translateY(26px);}
+  .js .reveal.in{opacity:1;transform:none;}
 
-  /* ---------- announcement ---------- */
-  .announce{
-    background:var(--ink);color:#F3E7E1;text-align:center;
-    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
-    padding:9px 16px;font-weight:300;
-  }
-  .announce b{color:var(--gold);font-weight:400;}
+  /* announcement */
+  .announce{background:var(--teal-deep);color:#EFE2C8;text-align:center;font-size:.72rem;
+    letter-spacing:.2em;text-transform:uppercase;padding:9px 16px;font-weight:300;}
+  .announce b{color:var(--gold-light);font-weight:400;}
 
-  /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:60;
-    background:rgba(250,246,242,.82);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(194,163,107,.25);
-    transition:box-shadow .4s var(--ease);
-  }
-  header.scrolled{box-shadow:0 10px 30px -22px rgba(70,59,64,.55);}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:88px;}
+  /* header */
+  header{position:sticky;top:0;z-index:60;background:rgba(244,235,218,.86);backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(188,154,75,.3);transition:box-shadow .4s var(--ease);}
+  header.scrolled{box-shadow:0 12px 30px -24px rgba(58,48,42,.7);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px;}
   .brand{display:flex;flex-direction:column;align-items:center;line-height:1;}
-  .brand .b-script{font-family:"Pinyon Script",cursive;font-size:1.85rem;color:var(--ink);}
-  .brand .b-sub{font-size:.6rem;letter-spacing:.55em;text-transform:uppercase;color:var(--gold-deep);margin-top:3px;padding-left:.55em;}
-  nav.links{display:flex;align-items:center;gap:38px;}
-  nav.links a{
-    font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);
-    position:relative;padding:4px 0;transition:color .3s;
-  }
+  .brand .b-script{font-family:"Pinyon Script",cursive;font-size:1.85rem;color:var(--gold-deep);}
+  .brand .b-sub{font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:var(--teal);margin-top:3px;padding-left:.5em;}
+  nav.links{display:flex;align-items:center;gap:36px;}
+  nav.links a{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);position:relative;padding:4px 0;transition:color .3s;}
   nav.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .35s var(--ease);}
-  nav.links a:hover{color:var(--mauve-deep);}
+  nav.links a:hover{color:var(--gold-deep);}
   nav.links a:hover::after{width:100%;}
-  .nav-cta{margin-left:6px;}
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;}
-  .burger span{width:24px;height:1.5px;background:var(--ink);transition:.3s;}
-
-  /* mobile menu */
-  .mobile-menu{
-    position:fixed;inset:0;z-index:55;background:var(--ivory);
-    transform:translateX(100%);transition:transform .5s var(--ease);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;
-  }
+  .burger span{width:24px;height:1.5px;background:var(--ink);}
+  .mobile-menu{position:fixed;inset:0;z-index:55;background:var(--canvas);transform:translateX(100%);
+    transition:transform .5s var(--ease);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;}
   .mobile-menu.open{transform:translateX(0);}
   .mobile-menu a{font-family:"Cormorant Garamond",serif;font-size:2rem;color:var(--ink);}
-  .mobile-menu a:hover{color:var(--mauve-deep);}
-  .mobile-close{position:absolute;top:26px;right:26px;font-size:2rem;background:none;border:0;color:var(--ink);cursor:pointer;}
+  .mobile-menu a:hover{color:var(--gold-deep);}
+  .mobile-close{position:absolute;top:24px;right:26px;font-size:2rem;background:none;border:0;color:var(--ink);cursor:pointer;}
 
-  /* ---------- hero ---------- */
-  .hero{padding:96px 0 70px;text-align:center;position:relative;}
+  /* hero */
+  .hero{padding:80px 0 70px;text-align:center;}
   .hero .eyebrow{font-size:2.3rem;}
-  .hero h1{font-size:clamp(3.4rem,9vw,6.6rem);font-weight:300;letter-spacing:.01em;margin:8px 0 4px;}
-  .hero .tagline{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--mauve-deep);font-weight:300;}
-  .hero .lead{max-width:600px;margin:26px auto 8px;color:var(--muted);font-size:1.12rem;}
-  .hero .verse{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin-top:10px;}
-  .hero-cta{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:34px;}
+  .hero .sr-h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  .hero-frame{max-width:760px;margin:22px auto 0;}
+  .hero .motto{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.5rem,3.4vw,2.3rem);
+    color:var(--teal-deep);font-weight:300;margin:34px auto 4px;max-width:760px;line-height:1.3;}
+  .hero .motto span{color:var(--gold-deep);}
+  .hero .place{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+  .hero-cta{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
 
-  .hero-stage{
-    margin:64px auto 0;max-width:980px;position:relative;
-    aspect-ratio:16/8;border-radius:6px;overflow:hidden;box-shadow:var(--shadow);
-    border:1px solid rgba(255,255,255,.6);
-  }
-  /* ---------- placeholder art ---------- */
-  .ph{
-    position:relative;width:100%;height:100%;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
-    color:var(--white);text-align:center;overflow:hidden;
-  }
-  .ph::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.06);mix-blend-mode:overlay;}
-  .ph svg{width:64px;height:64px;opacity:.92;position:relative;z-index:2;stroke:#fff;}
-  .ph .ph-name{position:relative;z-index:2;font-family:"Cormorant Garamond",serif;font-size:1.5rem;letter-spacing:.04em;}
-  .ph .ph-tag{position:relative;z-index:2;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;opacity:.85;}
-  .g-rose{background:linear-gradient(135deg,#D8AEA9,#B68C92);}
-  .g-sage{background:linear-gradient(135deg,#B7C1A3,#879572);}
-  .g-gold{background:linear-gradient(135deg,#E0C68C,#C2A36B);}
-  .g-mauve{background:linear-gradient(135deg,#C29AA0,#9C7077);}
-  .g-blush{background:linear-gradient(135deg,#EBD4CF,#D8AEA9);}
-  .g-dusk{background:linear-gradient(135deg,#B89AA6,#8C7A86);}
-  .hero-stage .ph svg{width:88px;height:88px;}
-  .hero-stage .ph-name{font-size:2rem;}
+  /* gilded frame (paintings) */
+  .frame{padding:9px;border-radius:3px;
+    background:linear-gradient(135deg,#E4C982 0%,#BC9A4B 38%,#9A7B30 62%,#D8BB72 100%);
+    box-shadow:0 0 0 1px rgba(122,96,30,.5), var(--shadow);}
+  .frame .mat{background:var(--mat);padding:14px;border-radius:1px;box-shadow:inset 0 2px 10px rgba(58,48,42,.18);}
+  .frame .mat img{width:100%;height:100%;object-fit:cover;display:block;box-shadow:0 3px 12px rgba(58,48,42,.32);}
+  .hero-frame .mat{padding:18px;}
 
-  /* ---------- collection / categories ---------- */
-  .collection{padding:96px 0;}
-  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:30px;}
-  .card{
-    background:var(--white);border-radius:5px;overflow:hidden;box-shadow:var(--shadow-sm);
-    border:1px solid rgba(194,163,107,.18);
-    transition:transform .5s var(--ease),box-shadow .5s var(--ease);
-    display:flex;flex-direction:column;
-  }
-  .card:hover{transform:translateY(-8px);box-shadow:var(--shadow);}
-  .card .img{aspect-ratio:4/3;}
-  .card .body{padding:26px 28px 30px;text-align:center;}
-  .card h3{font-size:1.85rem;font-weight:400;}
-  .card .price{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-deep);margin:8px 0 12px;}
-  .card .desc{color:var(--muted);font-size:.95rem;margin-bottom:18px;min-height:48px;}
-  .card .link{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mauve-deep);border-bottom:1px solid var(--rose);padding-bottom:3px;transition:.3s;}
-  .card:hover .link{letter-spacing:.3em;}
-  .card.soon{background:linear-gradient(160deg,#fff,#F7EEE9);border-style:dashed;border-color:var(--rose);justify-content:center;align-items:center;text-align:center;padding:48px 24px;min-height:260px;}
-  .card.soon h3{color:var(--mauve-deep);}
-  .card.soon p{color:var(--muted);font-size:.92rem;max-width:240px;margin:10px auto 0;}
+  /* collection */
+  .collection{padding:92px 0;}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:40px 34px;}
+  .piece{display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;}
+  .piece .frame{width:100%;transition:transform .5s var(--ease),box-shadow .5s var(--ease);}
+  .piece .mat img{aspect-ratio:4/5;}
+  .piece:hover .frame{transform:translateY(-8px);box-shadow:0 34px 60px -30px rgba(58,48,42,.7);}
+  .plaque{margin-top:20px;}
+  .plaque h3{font-size:1.7rem;font-weight:500;letter-spacing:.01em;}
+  .plaque .desc{color:var(--muted);font-size:.93rem;margin:7px auto 0;max-width:260px;line-height:1.5;}
+  .plaque .tag{display:inline-block;margin-top:11px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--gold-deep);border-bottom:1px solid var(--gold-light);padding-bottom:3px;transition:.3s;}
+  .piece:hover .plaque .tag{letter-spacing:.32em;}
+  /* empty frame placeholder */
+  .piece.soon .mat{aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    background:repeating-linear-gradient(45deg,#F3EAD6,#F3EAD6 14px,#EFE4CD 14px,#EFE4CD 28px);}
+  .piece.soon .mat .sg{font-family:"Pinyon Script",cursive;font-size:1.7rem;color:var(--gold-deep);}
+  .piece.soon .mat .sgs{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);}
 
-  /* ---------- signature feature ---------- */
-  .feature{padding:30px 0 96px;}
-  .feature .inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-  .feature .art{aspect-ratio:5/5;border-radius:6px;overflow:hidden;box-shadow:var(--shadow);}
-  .feature h2{font-size:clamp(2.3rem,4.5vw,3.4rem);font-weight:300;margin:10px 0 6px;}
-  .feature p{color:var(--muted);font-size:1.06rem;}
-  .feature ul{list-style:none;padding:0;margin:18px 0 28px;}
-  .feature li{position:relative;padding-left:30px;margin-bottom:10px;color:var(--ink);font-weight:300;}
-  .feature li::before{content:"✦";position:absolute;left:0;color:var(--gold);font-size:.8rem;top:3px;}
+  /* artist spotlight */
+  .artist{padding:30px 0 96px;}
+  .artist .inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .artist .frame{max-width:440px;}
+  .artist .mat img{aspect-ratio:1/1;}
+  .artist h2{font-size:clamp(2.3rem,4.6vw,3.5rem);font-weight:300;margin:8px 0 8px;}
+  .artist p{color:var(--muted);font-size:1.07rem;}
+  .artist .integrity{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.3rem;color:var(--teal-deep);margin:18px 0;}
+  .artist .signoff{font-family:"Pinyon Script",cursive;font-size:2.2rem;color:var(--plum);margin-top:10px;}
+  .artist .badges{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px;}
+  .artist .badges span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);
+    border:1px solid var(--gold-light);border-radius:30px;padding:6px 14px;}
 
-  /* ---------- gallery ---------- */
-  .gallery{padding:96px 0;background:linear-gradient(180deg,transparent,rgba(244,233,227,.55),transparent);}
-  .masonry{column-count:3;column-gap:22px;}
-  .masonry figure{break-inside:avoid;margin:0 0 22px;border-radius:5px;overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer;position:relative;}
-  .masonry .ph{transition:transform .6s var(--ease);}
-  .masonry figure:hover .ph{transform:scale(1.05);}
-  .masonry figcaption{
-    position:absolute;inset:auto 0 0 0;padding:30px 18px 14px;
-    background:linear-gradient(transparent,rgba(70,59,64,.7));
-    color:#fff;font-family:"Cormorant Garamond",serif;font-size:1.2rem;font-style:italic;
-    opacity:0;transform:translateY(8px);transition:.4s var(--ease);z-index:3;
-  }
-  .masonry figure:hover figcaption{opacity:1;transform:none;}
-  .t-tall{aspect-ratio:3/4;} .t-sq{aspect-ratio:1/1;} .t-wide{aspect-ratio:4/3;}
-  .gallery-note{text-align:center;color:var(--muted);font-style:italic;font-family:"Cormorant Garamond",serif;font-size:1.05rem;margin-top:30px;}
-
-  /* lightbox */
-  .lightbox{position:fixed;inset:0;z-index:80;background:rgba(70,59,64,.86);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:30px;}
-  .lightbox.open{display:flex;}
-  .lightbox .frame{width:min(560px,90vw);aspect-ratio:1/1;border-radius:6px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);}
-  .lightbox .lb-close{position:absolute;top:24px;right:30px;color:#fff;font-size:2.2rem;background:none;border:0;cursor:pointer;}
-
-  /* ---------- about ---------- */
-  .about{padding:96px 0;}
-  .about .inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-  .about .art{aspect-ratio:4/5;border-radius:6px;overflow:hidden;box-shadow:var(--shadow);}
-  .about h2{font-size:clamp(2.3rem,4.5vw,3.4rem);font-weight:300;margin:8px 0 18px;}
-  .about p{color:var(--muted);font-size:1.06rem;}
-  .about .signoff{font-family:"Pinyon Script",cursive;font-size:2.1rem;color:var(--mauve-deep);margin-top:14px;}
-
-  /* ---------- order steps ---------- */
-  .order{padding:96px 0;background:linear-gradient(180deg,transparent,rgba(235,212,207,.4));}
+  /* order */
+  .order{padding:92px 0;background:linear-gradient(180deg,transparent,rgba(53,97,87,.07),transparent);}
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-bottom:54px;}
   .step{text-align:center;padding:0 14px;}
-  .step .num{
-    width:64px;height:64px;border-radius:50%;border:1px solid var(--gold);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
-    font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:var(--gold-deep);
-  }
+  .step .num{width:64px;height:64px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;
+    margin:0 auto 18px;font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:var(--gold-deep);}
   .step h3{font-size:1.5rem;font-weight:400;margin-bottom:8px;}
   .step p{color:var(--muted);font-size:.96rem;}
-
-  .order-card{
-    background:var(--white);border-radius:6px;box-shadow:var(--shadow);
-    max-width:780px;margin:0 auto;padding:48px 46px;text-align:center;
-    border:1px solid rgba(194,163,107,.2);
-  }
-  .order-card h3{font-size:2rem;font-weight:400;margin-bottom:8px;}
+  .order-card{background:var(--paper);border-radius:4px;box-shadow:var(--shadow);max-width:780px;margin:0 auto;
+    padding:48px 46px;text-align:center;border:1px solid rgba(188,154,75,.3);}
+  .order-card h3{font-size:2rem;font-weight:400;margin-bottom:6px;}
   .order-card p{color:var(--muted);}
   .form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;text-align:left;}
   .form .full{grid-column:1/-1;}
-  .form label{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;}
-  .form input,.form select,.form textarea{
-    width:100%;padding:13px 14px;border:1px solid var(--blush);border-radius:3px;
-    background:var(--ivory);font-family:"Jost",sans-serif;font-weight:300;color:var(--ink);font-size:.95rem;
-    transition:border .3s;
-  }
-  .form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--mauve);}
+  .form label{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;}
+  .form input,.form select,.form textarea{width:100%;padding:13px 14px;border:1px solid #DDC9A6;border-radius:3px;
+    background:var(--canvas);font-family:"Jost",sans-serif;font-weight:300;color:var(--ink);font-size:.95rem;transition:border .3s;}
+  .form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--teal);}
   .form textarea{resize:vertical;min-height:90px;}
   .form .full.center{text-align:center;margin-top:6px;}
 
-  /* ---------- footer ---------- */
-  footer{background:var(--ink);color:#E9DCD9;padding:74px 0 30px;}
+  /* footer */
+  footer{background:var(--teal-deep);color:#E7DCC4;padding:72px 0 30px;}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;}
-  footer .b-script{font-family:"Pinyon Script",cursive;font-size:2.1rem;color:#fff;}
-  footer .b-sub{font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-top:2px;padding-left:.5em;}
-  footer p{color:#C8B7B4;font-size:.95rem;}
-  footer h4{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-family:"Jost",sans-serif;font-weight:400;}
+  footer .b-script{font-family:"Pinyon Script",cursive;font-size:2.1rem;color:var(--gold-light);}
+  footer .b-sub{font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:#CFE0D4;margin-top:2px;padding-left:.5em;}
+  footer p{color:#CBBFA6;font-size:.95rem;}
+  footer h4{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;font-family:"Jost",sans-serif;font-weight:400;}
   footer a:hover{color:#fff;}
   .foot-list{list-style:none;padding:0;margin:0;}
-  .foot-list li{margin-bottom:10px;font-size:.95rem;color:#C8B7B4;}
-  .foot-verse{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.15rem;color:#E9DCD9;}
-  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:54px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;letter-spacing:.06em;color:#9C8C89;}
-  .foot-bottom a{color:var(--gold);}
+  .foot-list li{margin-bottom:10px;font-size:.95rem;color:#CBBFA6;}
+  .foot-motto{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.18rem;color:#EFE2C8;}
+  .foot-bottom{border-top:1px solid rgba(239,226,200,.18);margin-top:52px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;letter-spacing:.06em;color:#9FB0A2;}
+  .foot-bottom a{color:var(--gold-light);}
 
-  .mock-tag{
-    position:fixed;bottom:18px;left:18px;z-index:70;
-    background:rgba(70,59,64,.9);color:#F3E7E1;font-size:.66rem;letter-spacing:.18em;
-    text-transform:uppercase;padding:8px 14px;border-radius:30px;
-    border:1px solid var(--gold);
-  }
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;z-index:80;background:rgba(39,33,28,.9);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:32px;}
+  .lightbox.open{display:flex;flex-direction:column;gap:16px;}
+  .lightbox .lb-frame{max-width:min(620px,92vw);max-height:78vh;}
+  .lightbox .lb-frame .mat img{max-height:68vh;width:auto;}
+  .lightbox .lb-cap{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.5rem;color:#F3E7CF;text-align:center;}
+  .lightbox .lb-close{position:absolute;top:22px;right:30px;color:#F3E7CF;font-size:2.2rem;background:none;border:0;cursor:pointer;}
 
-  /* ---------- responsive ---------- */
   @media(max-width:920px){
     nav.links{display:none;}
     .burger{display:flex;}
-    .feature .inner,.about .inner{grid-template-columns:1fr;gap:40px;}
-    .feature .art,.about .art{max-width:460px;margin:0 auto;width:100%;}
-    .masonry{column-count:2;}
+    .artist .inner{grid-template-columns:1fr;gap:40px;}
+    .artist .frame{max-width:420px;margin:0 auto;}
     .steps{grid-template-columns:1fr;gap:38px;max-width:360px;margin:0 auto 48px;}
   }
   @media(max-width:560px){
     .wrap{padding:0 22px;}
-    .hero{padding:64px 0 40px;}
-    .masonry{column-count:1;}
+    .hero{padding:54px 0 44px;}
     .form{grid-template-columns:1fr;}
     .order-card{padding:34px 24px;}
     .foot-grid{grid-template-columns:1fr;gap:34px;text-align:center;}
@@ -311,26 +219,11 @@
 </head>
 <body>
 
-<!-- ethereal background wash -->
-<div class="wash"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span></div>
+<div class="wash"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+<div class="grain"></div>
 
-<!-- reusable svg defs -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <g id="i-cake"><path fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M10 44h44M14 44V28c0-3 4-5 8-5s8 2 8 5M30 23c0-3 4-5 8-5s8 2 8 5v16M14 33c2 2 5 2 8 0s6-2 8 0 6 2 8 0 6-2 8 0M32 14v-3M32 11l3-3-3 1-3-1z"/></g>
-    <g id="i-cupcake"><path fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M18 30h28l-4 22a3 3 0 0 1-3 2H25a3 3 0 0 1-3-2zM18 30a14 14 0 0 1 28 0M22 30v24M32 30v24M42 30v24M32 17v-4M32 13l2-2-2 1-2-1z"/></g>
-    <g id="i-cookie"><path fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M32 12a20 20 0 1 0 20 20c0-2-3 0-4-3s1-5-2-5-3-3-2-5-4-1-5-3 0-4-5-4z"/><circle cx="26" cy="28" r="1.6" fill="currentColor" stroke="none"/><circle cx="36" cy="26" r="1.6" fill="currentColor" stroke="none"/><circle cx="30" cy="38" r="1.6" fill="currentColor" stroke="none"/><circle cx="40" cy="36" r="1.6" fill="currentColor" stroke="none"/></g>
-    <g id="i-muffin"><path fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M20 32h24l-3 20a3 3 0 0 1-3 2H26a3 3 0 0 1-3-2zM20 32a12 12 0 0 1 4-8 9 9 0 0 1 16 0 12 12 0 0 1 4 8M20 32h24"/><path fill="none" stroke-width="1.6" stroke-linecap="round" d="M28 24c0-3 4-3 4 0M36 25c0-3 3-3 3 0"/></g>
-    <g id="i-tier"><path fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M22 52h20M18 52V42h28v10M24 42V32h16v10M28 32V24h8v8M22 47h24M26 37h12M32 22v-3M32 19l3-3-3 1-3-1z"/></g>
-    <g id="i-bread"><path fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M14 40c0-9 8-16 18-16s18 7 18 16a2 2 0 0 1-2 2H16a2 2 0 0 1-2-2zM24 27c2 4 2 9 0 13M32 25c2 5 2 10 0 15M40 27c2 4 2 9 0 13"/></g>
-    <g id="i-flower"><path fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M32 22a6 6 0 0 1 0 12 6 6 0 0 1 0-12zM32 22c0-6 8-8 10-4s-2 10-8 8M32 34c0 6-8 8-10 4s2-10 8-8M26 26c-5-3-4-11 1-10s6 9 1 10M38 26c5-3 4-11-1-10s-6 9-1 10"/><circle cx="32" cy="28" r="2.2" fill="currentColor" stroke="none"/></g>
-  </defs>
-</svg>
-
-<!-- announcement -->
 <div class="announce">Gluten-free · Sugar-free · Vegan options &nbsp;|&nbsp; <b>Call or email for same-day orders</b></div>
 
-<!-- header -->
 <header id="top">
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Art Cottage Bakery home">
@@ -339,44 +232,34 @@
     </a>
     <nav class="links">
       <a href="#collection">Collection</a>
-      <a href="#muffins">Muffins</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#about">About</a>
+      <a href="#artist">The Artist</a>
       <a href="#order">Order</a>
-      <a class="btn nav-cta" href="#order">Order Now</a>
+      <a class="btn" href="#order">Order Now</a>
     </nav>
     <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
   <a href="#collection">Collection</a>
-  <a href="#muffins">Muffins</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#about">About</a>
+  <a href="#artist">The Artist</a>
   <a href="#order">Order</a>
 </div>
 
 <!-- hero -->
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow reveal">edible art, made by hand</span>
-    <h1 class="reveal">Art Cottage Bakery</h1>
-    <p class="tagline reveal">Where taste compliments integrity</p>
-    <p class="lead reveal">An entirely from-scratch home bakery crafting painterly cakes, delicate pastries, and our beloved banana raisin muffins. Each one a small, edible work of art.</p>
-    <p class="verse reveal">Deuteronomy 28:5</p>
+    <h1 class="sr-h1">Art Cottage Bakery</h1>
+    <span class="eyebrow reveal">edible pieces of art</span>
+    <div class="hero-frame frame reveal">
+      <div class="mat"><img src="photos/web/art-jun23.jpg" alt="Art Cottage Bakery, hand-painted logo with roses and cupcakes, Texas City, Texas" /></div>
+    </div>
+    <p class="motto reveal">From home, from scratch, from the heart, <span>serving edible pieces of art.</span></p>
+    <p class="place reveal">An entirely from-scratch home bakery · Texas City, TX</p>
     <div class="hero-cta reveal">
       <a href="#collection" class="btn solid">View the Collection</a>
-      <a href="#order" class="btn">Place an Order</a>
-    </div>
-    <div class="hero-stage reveal">
-      <div class="ph g-blush">
-        <svg viewBox="0 0 64 64" stroke="#fff"><use href="#i-tier"/></svg>
-        <span class="ph-name">Your signature hero photo</span>
-        <span class="ph-tag">a painterly cake, styled &amp; lit</span>
-      </div>
+      <a href="#order" class="btn gold">Place an Order</a>
     </div>
   </div>
 </section>
@@ -386,127 +269,69 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">the collection</span>
-      <h2>Choose Your Confection</h2>
-      <div class="ornament"><svg viewBox="0 0 64 64"><use href="#i-flower"/></svg></div>
-      <p>Whether you're after something unique or something traditional, you design the look and we'll design the taste.</p>
+      <h2>A Little Gallery of What We Make</h2>
+      <div class="ornament"><b>&#10047;</b></div>
+      <p>Every bake is finished by hand, like a small painting. Tap any piece to see it up close.</p>
     </div>
     <div class="cat-grid">
 
-      <article class="card reveal">
-        <div class="img"><div class="ph g-rose"><svg viewBox="0 0 64 64"><use href="#i-cake"/></svg><span class="ph-name">Cakes</span><span class="ph-tag">your photo here</span></div></div>
-        <div class="body">
-          <h3>Cakes</h3>
-          <div class="price">from $100</div>
-          <p class="desc">Hand-painted, single-tier celebrations made to your colour and theme.</p>
-          <span class="link">Explore Cakes</span>
-        </div>
+      <article class="piece reveal" data-img="photos/web/cakes.jpg" data-name="Cakes">
+        <div class="frame"><div class="mat"><img src="photos/web/cakes.jpg" alt="Caramel-drip layer cake, oil-painting style" loading="lazy" /></div></div>
+        <div class="plaque"><h3>Cakes</h3><p class="desc">Hand-finished layer cakes, painted to your theme.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="card reveal">
-        <div class="img"><div class="ph g-mauve"><svg viewBox="0 0 64 64"><use href="#i-tier"/></svg><span class="ph-name">Tiered Cakes</span><span class="ph-tag">your photo here</span></div></div>
-        <div class="body">
-          <h3>Tiered Cakes</h3>
-          <div class="price">from $270</div>
-          <p class="desc">Statement centrepieces for weddings, showers, and milestones.</p>
-          <span class="link">Explore Tiered</span>
-        </div>
+      <article class="piece reveal" data-img="photos/web/cupcakes.jpg" data-name="Cupcakes">
+        <div class="frame"><div class="mat"><img src="photos/web/cupcakes.jpg" alt="Pink and purple buttercream rose cupcakes, oil-painting style" loading="lazy" /></div></div>
+        <div class="plaque"><h3>Cupcakes</h3><p class="desc">Buttercream roses, finished like brushwork.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="card reveal">
-        <div class="img"><div class="ph g-gold"><svg viewBox="0 0 64 64"><use href="#i-cupcake"/></svg><span class="ph-name">Cupcakes</span><span class="ph-tag">your photo here</span></div></div>
-        <div class="body">
-          <h3>Cupcakes</h3>
-          <div class="price">from $60</div>
-          <p class="desc">By the dozen, finished with delicate florals and gilded detail.</p>
-          <span class="link">Explore Cupcakes</span>
-        </div>
+      <article class="piece reveal" data-img="photos/web/tiered-cakes.jpg" data-name="Tiered Cakes">
+        <div class="frame"><div class="mat"><img src="photos/web/tiered-cakes.jpg" alt="Two-tier cake with navy and cream roses, oil-painting style" loading="lazy" /></div></div>
+        <div class="plaque"><h3>Tiered Cakes</h3><p class="desc">Statement centerpieces for the big days.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="card reveal">
-        <div class="img"><div class="ph g-sage"><svg viewBox="0 0 64 64"><use href="#i-cookie"/></svg><span class="ph-name">Cookies</span><span class="ph-tag">your photo here</span></div></div>
-        <div class="body">
-          <h3>Cookies</h3>
-          <div class="price">from $55</div>
-          <p class="desc">Iced and detailed by hand, as pretty as they are tender.</p>
-          <span class="link">Explore Cookies</span>
-        </div>
+      <article class="piece reveal" data-img="photos/web/cookies.jpg" data-name="Cookies">
+        <div class="frame"><div class="mat"><img src="photos/web/cookies.jpg" alt="Tray of loaded cookies, oil-painting style" loading="lazy" /></div></div>
+        <div class="plaque"><h3>Cookies</h3><p class="desc">Small-batch, packed with texture and care.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="card reveal">
-        <div class="img"><div class="ph g-dusk"><svg viewBox="0 0 64 64"><use href="#i-bread"/></svg><span class="ph-name">Breads &amp; Pies</span><span class="ph-tag">your photo here</span></div></div>
-        <div class="body">
-          <h3>Dessert Breads &amp; Pies</h3>
-          <div class="price">seasonal · inquire</div>
-          <p class="desc">Comforting loaves and pies, baked fresh to the season.</p>
-          <span class="link">Explore Breads</span>
-        </div>
+      <article class="piece reveal" data-img="photos/web/pies-cinn-rolls.jpg" data-name="Dessert Breads &amp; Pies">
+        <div class="frame"><div class="mat"><img src="photos/web/pies-cinn-rolls.jpg" alt="Iced cinnamon rolls and sweet breads, oil-painting style" loading="lazy" /></div></div>
+        <div class="plaque"><h3>Dessert Breads &amp; Pies</h3><p class="desc">Sweet breads and rolls, baked fresh to the season.</p><span class="tag">View &amp; Inquire</span></div>
       </article>
 
-      <article class="card soon reveal">
-        <h3>More to Come</h3>
-        <p>A space reserved for your next category of baked goods, ready whenever you are.</p>
+      <article class="piece reveal" data-img="photos/web/dessert-breads-muffins.jpg" data-name="Muffins &amp; Cinnamon Rolls">
+        <div class="frame"><div class="mat"><img src="photos/web/dessert-breads-muffins.jpg" alt="Frosted muffins, oil-painting style" loading="lazy" /></div></div>
+        <div class="plaque"><h3>Muffins &amp; Cinnamon Rolls</h3><p class="desc">Morning comfort, made from scratch.</p><span class="tag">View &amp; Inquire</span></div>
+      </article>
+
+      <article class="piece reveal" data-img="photos/web/art-jun29.jpg" data-name="Painted Cakes">
+        <div class="frame"><div class="mat"><img src="photos/web/art-jun29.jpg" alt="Cake with a hand-painted sunflower, oil-painting style" loading="lazy" /></div></div>
+        <div class="plaque"><h3>Painted Cakes</h3><p class="desc">Edible canvases, hand-painted by the artist.</p><span class="tag">View &amp; Inquire</span></div>
+      </article>
+
+      <article class="piece soon reveal">
+        <div class="frame"><div class="mat"><span class="sg">coming soon</span><span class="sgs">a new piece</span></div></div>
+        <div class="plaque"><h3>Exclusive Exquisite Cakes</h3><p class="desc">Our most elevated, bespoke creations.</p><span class="tag">Ask About Bespoke</span></div>
       </article>
 
     </div>
   </div>
 </section>
 
-<!-- signature muffins -->
-<section class="feature" id="muffins">
+<!-- the artist -->
+<section class="artist" id="artist">
   <div class="wrap inner">
-    <div class="art reveal">
-      <div class="ph g-gold"><svg viewBox="0 0 64 64"><use href="#i-muffin"/></svg><span class="ph-name">Banana Raisin Muffins</span><span class="ph-tag">your photo here</span></div>
+    <div class="frame reveal">
+      <div class="mat"><img src="photos/web/art-jun29.jpg" alt="A cake hand-painted with a sunflower" /></div>
     </div>
     <div class="reveal">
-      <span class="eyebrow">the house favourite</span>
-      <h2>Famous Banana Raisin Muffins</h2>
-      <p>The little loaves that started it all. Baked from scratch in small batches with ripe banana, plump raisins, and a tender, golden crumb. Quietly perfect, and beloved by the neighborhood.</p>
-      <ul>
-        <li>Made fresh to order, never from a box</li>
-        <li>Gluten-free, sugar-free &amp; vegan versions available</li>
-        <li>By the half-dozen or dozen, beautifully boxed</li>
-      </ul>
-      <a href="#order" class="btn gold">Reserve a Batch</a>
-    </div>
-  </div>
-</section>
-
-<!-- gallery -->
-<section class="gallery" id="gallery">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">edible art</span>
-      <h2>The Gallery</h2>
-      <div class="ornament"><svg viewBox="0 0 64 64"><use href="#i-flower"/></svg></div>
-      <p>A look at the little works of art that leave the cottage kitchen.</p>
-    </div>
-    <div class="masonry">
-      <figure class="reveal"><div class="ph g-blush t-tall"><svg viewBox="0 0 64 64"><use href="#i-tier"/></svg></div><figcaption>Blush ombré tier</figcaption></figure>
-      <figure class="reveal"><div class="ph g-sage t-sq"><svg viewBox="0 0 64 64"><use href="#i-cupcake"/></svg></div><figcaption>Garden cupcakes</figcaption></figure>
-      <figure class="reveal"><div class="ph g-gold t-wide"><svg viewBox="0 0 64 64"><use href="#i-cookie"/></svg></div><figcaption>Gilded sugar cookies</figcaption></figure>
-      <figure class="reveal"><div class="ph g-mauve t-sq"><svg viewBox="0 0 64 64"><use href="#i-cake"/></svg></div><figcaption>Hand-painted cake</figcaption></figure>
-      <figure class="reveal"><div class="ph g-rose t-tall"><svg viewBox="0 0 64 64"><use href="#i-flower"/></svg></div><figcaption>Buttercream florals</figcaption></figure>
-      <figure class="reveal"><div class="ph g-dusk t-wide"><svg viewBox="0 0 64 64"><use href="#i-muffin"/></svg></div><figcaption>Morning muffins</figcaption></figure>
-      <figure class="reveal"><div class="ph g-gold t-sq"><svg viewBox="0 0 64 64"><use href="#i-bread"/></svg></div><figcaption>Seasonal pie</figcaption></figure>
-      <figure class="reveal"><div class="ph g-blush t-wide"><svg viewBox="0 0 64 64"><use href="#i-cake"/></svg></div><figcaption>Watercolour wedding</figcaption></figure>
-      <figure class="reveal"><div class="ph g-sage t-tall"><svg viewBox="0 0 64 64"><use href="#i-cupcake"/></svg></div><figcaption>Sage &amp; gold dozen</figcaption></figure>
-    </div>
-    <p class="gallery-note">Shown with placeholders, ready for your photography.</p>
-  </div>
-</section>
-
-<!-- about -->
-<section class="about" id="about">
-  <div class="wrap inner">
-    <div class="reveal">
-      <span class="eyebrow">our story</span>
-      <h2>From a Cottage Kitchen, With Care</h2>
-      <p>Art Cottage Bakery is an entirely from-scratch home bakery, where every cake, cookie, and muffin is made by hand in small batches. There are no shortcuts and no mixes, only good ingredients, patience, and a painter's eye.</p>
-      <p>We believe a bake should be as beautiful as it is delicious, and that the two should never be at odds. That is what we mean by <em>taste that compliments integrity</em>.</p>
+      <span class="eyebrow">the artist</span>
+      <h2>Where the Bakery Gets Its Name</h2>
+      <p>Art Cottage Bakery is led by a working oil painter, muralist, and book illustrator. Every cake, cookie, and loaf is made from scratch and finished by hand, with the same eye she brings to a canvas. Here, the "art" in the name is literal.</p>
+      <p class="integrity">"Where taste compliments integrity."</p>
+      <div class="badges"><span>Oil Painter</span><span>Muralist</span><span>Book Illustrator</span></div>
       <p class="signoff">Tessa</p>
-    </div>
-    <div class="art reveal">
-      <div class="ph g-mauve"><svg viewBox="0 0 64 64"><use href="#i-flower"/></svg><span class="ph-name">A portrait or kitchen photo</span><span class="ph-tag">your photo here</span></div>
     </div>
   </div>
 </section>
@@ -517,14 +342,13 @@
     <div class="section-head reveal">
       <span class="eyebrow">how it works</span>
       <h2>Place an Order</h2>
-      <div class="ornament"><svg viewBox="0 0 64 64"><use href="#i-flower"/></svg></div>
+      <div class="ornament"><b>&#10047;</b></div>
     </div>
     <div class="steps">
-      <div class="step reveal"><div class="num">I</div><h3>Browse &amp; Dream</h3><p>Explore the collection and the gallery for inspiration, or arrive with an idea all your own.</p></div>
-      <div class="step reveal"><div class="num">II</div><h3>Tell Us the Details</h3><p>Share your occasion, flavours, colours, and date. We'll confirm availability and a quote.</p></div>
-      <div class="step reveal"><div class="num">III</div><h3>Freshly Made &amp; Ready</h3><p>Your order is baked from scratch and beautifully boxed for pickup on your day.</p></div>
+      <div class="step reveal"><div class="num">I</div><h3>Browse &amp; Dream</h3><p>Wander the collection for inspiration, or arrive with an idea all your own.</p></div>
+      <div class="step reveal"><div class="num">II</div><h3>Tell Us the Details</h3><p>Share your occasion, flavors, colors, and date. We'll confirm and quote.</p></div>
+      <div class="step reveal"><div class="num">III</div><h3>Freshly Made &amp; Ready</h3><p>Your order is baked from scratch and beautifully boxed for pickup.</p></div>
     </div>
-
     <div class="order-card reveal">
       <h3>Request Your Order</h3>
       <p>Tell us what you're dreaming of. We'll be in touch within a day.</p>
@@ -534,13 +358,13 @@
         <div>
           <label>What can we bake?</label>
           <select>
-            <option>Cakes</option><option>Tiered Cakes</option><option>Cupcakes</option>
-            <option>Cookies</option><option>Dessert Breads &amp; Pies</option>
-            <option>Banana Raisin Muffins</option><option>Something custom</option>
+            <option>Cakes</option><option>Cupcakes</option><option>Tiered Cakes</option><option>Cookies</option>
+            <option>Dessert Breads &amp; Pies</option><option>Muffins &amp; Cinnamon Rolls</option>
+            <option>Painted Cakes</option><option>Exclusive Exquisite Cakes</option><option>Something custom</option>
           </select>
         </div>
         <div><label>Needed By</label><input type="text" placeholder="Date of pickup" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" /></div>
-        <div class="full"><label>Tell us more</label><textarea placeholder="Occasion, flavours, colours, dietary needs, and any inspiration..."></textarea></div>
+        <div class="full"><label>Tell us more</label><textarea placeholder="Occasion, flavors, colors, dietary needs, and any inspiration..."></textarea></div>
         <div class="full center"><button class="btn solid" type="submit">Send Request</button></div>
       </form>
     </div>
@@ -553,15 +377,16 @@
     <div class="foot-grid">
       <div>
         <span class="b-script">Art Cottage</span><div class="b-sub">Bakery</div>
-        <p style="margin-top:18px;max-width:320px;">An entirely from-scratch home bakery making edible art, one small batch at a time.</p>
-        <p class="foot-verse">"Where taste compliments integrity"</p>
+        <p style="margin-top:18px;max-width:320px;">An entirely from-scratch home bakery, making edible art one small batch at a time.</p>
+        <p class="foot-motto">"From home, from scratch, from the heart, serving edible pieces of art."</p>
       </div>
       <div>
         <h4>Visit &amp; Reach</h4>
         <ul class="foot-list">
-          <li>[Your City, TX]</li>
-          <li>[Phone number]</li>
-          <li>[hello@artcottagebakery.org]</li>
+          <li>Texas City, TX</li>
+          <li>(347) 362-7133</li>
+          <li><a href="mailto:tessa@artbakerylm.org">tessa@artbakerylm.org</a></li>
+          <li>artcottagebakery.org</li>
           <li>Pickup by appointment</li>
         </ul>
       </div>
@@ -569,10 +394,9 @@
         <h4>Explore</h4>
         <ul class="foot-list">
           <li><a href="#collection">The Collection</a></li>
-          <li><a href="#gallery">The Gallery</a></li>
-          <li><a href="#about">Our Story</a></li>
+          <li><a href="#artist">The Artist</a></li>
           <li><a href="#order">Place an Order</a></li>
-          <li><a href="#">Instagram</a></li>
+          <li><a href="#order">Custom &amp; Bespoke</a></li>
         </ul>
       </div>
     </div>
@@ -586,48 +410,33 @@
 <!-- lightbox -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
-  <div class="frame" id="lbFrame"></div>
+  <div class="lb-frame frame"><div class="mat"><img id="lbImg" src="" alt="" /></div></div>
+  <div class="lb-cap" id="lbCap"></div>
 </div>
 
 <script>
-  // year
   document.getElementById('yr').textContent = new Date().getFullYear();
+  var header = document.querySelector('header');
+  addEventListener('scroll', function(){ header.classList.toggle('scrolled', scrollY > 12); });
 
-  // header shadow on scroll
-  const header = document.querySelector('header');
-  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 12));
+  var mm = document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick = function(){ mm.classList.add('open'); };
+  document.getElementById('mobileClose').onclick = function(){ mm.classList.remove('open'); };
+  mm.querySelectorAll('a').forEach(function(a){ a.onclick = function(){ mm.classList.remove('open'); }; });
 
-  // mobile menu
-  const mm = document.getElementById('mobileMenu');
-  document.getElementById('burger').onclick = () => mm.classList.add('open');
-  document.getElementById('mobileClose').onclick = () => mm.classList.remove('open');
-  mm.querySelectorAll('a').forEach(a => a.onclick = () => mm.classList.remove('open'));
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.1 });
+  document.querySelectorAll('.reveal').forEach(function(el,i){ el.style.transitionDelay=(i%4)*80+'ms'; io.observe(el); });
 
-  // reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold:.12 });
-  document.querySelectorAll('.reveal').forEach((el,i) => {
-    el.style.transitionDelay = (i % 4) * 90 + 'ms';
-    io.observe(el);
+  var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap');
+  document.querySelectorAll('.piece[data-img]').forEach(function(p){
+    p.onclick=function(){ lbImg.src=p.getAttribute('data-img'); lbImg.alt=p.getAttribute('data-name'); lbCap.textContent=p.getAttribute('data-name'); lb.classList.add('open'); };
   });
-
-  // gallery lightbox
-  const lb = document.getElementById('lightbox');
-  const lbFrame = document.getElementById('lbFrame');
-  document.querySelectorAll('.masonry figure').forEach(fig => {
-    fig.onclick = () => {
-      const ph = fig.querySelector('.ph').cloneNode(true);
-      ph.style.aspectRatio = 'auto';
-      lbFrame.innerHTML = '';
-      lbFrame.appendChild(ph);
-      lb.classList.add('open');
-    };
-  });
-  const closeLb = () => lb.classList.remove('open');
-  document.getElementById('lbClose').onclick = closeLb;
-  lb.onclick = (e) => { if (e.target === lb) closeLb(); };
-  addEventListener('keydown', e => { if (e.key === 'Escape'){ closeLb(); mm.classList.remove('open'); } });
+  function closeLb(){ lb.classList.remove('open'); }
+  document.getElementById('lbClose').onclick=closeLb;
+  lb.onclick=function(e){ if(e.target===lb) closeLb(); };
+  addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeLb(); mm.classList.remove('open'); } });
 </script>
 </body>
 </html>
